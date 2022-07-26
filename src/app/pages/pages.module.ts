@@ -7,6 +7,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { ReportsComponent } from './reports/reports.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    FormsModule,
+    SharedModule
   ]
 })
 export class PagesModule { }

@@ -8,7 +8,9 @@ import { IBoxCard } from 'src/app/shared/models/box-card.model';
 })
 export class DashboardComponent implements OnInit {
 
-  boxCardList: Array<IBoxCard> = []
+  boxCardList: Array<IBoxCard> = [];
+  searchTerm: string = "";
+
   constructor() { }
 
   ngOnInit(): void {
@@ -40,4 +42,15 @@ export class DashboardComponent implements OnInit {
     ]
   }
 
+  onItemClick(item: IBoxCard) {
+    console.log("onItemClick() is invoked!", item);
+  }
+
+  onInputChange(event: any) {
+    console.log(event?.target?.value);
+  }
+
+  onBoxClick(item: IBoxCard) {
+    console.log(item);
+  }
 }

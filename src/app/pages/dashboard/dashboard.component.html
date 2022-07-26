@@ -2,20 +2,31 @@
   <div class="row">
     <div class="col-md-12">
       <h1>Dashboard</h1>
-      <hr>
     </div>
   </div>
   <div class="row">
+    <h4>One Way Binding</h4>
     <div class="col-md-3" *ngFor="let item of boxCardList">
-      <div class="box {{item.bgColor}}">
+      <div class="box {{item.bgColor}}" (click)="onItemClick(item)">
         <div class="box-icn">
           <i [class]="item.boxIcon"></i>
         </div>
         <div class="box-content">
           <h5>{{item.boxTitle}}</h5>
-          <p>{{item.boxCount}}</p>
+          <p>{{item.boxCount | number}}</p>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="mt-3">
+    <h4>Two Way Binding - ngModel</h4>
+    <input type="text" [(ngModel)]="searchTerm" />
+    {{searchTerm}}
+  </div>
+  <div class="row mt-4">
+    <h4>Two Way Binding - Parent Child Component</h4>
+    <div class="col-md-3" *ngFor="let item of boxCardList">
+      <app-box-card [boxCard]="item" (boxClick)="onBoxClick($event)"></app-box-card>
     </div>
   </div>
 </div>
