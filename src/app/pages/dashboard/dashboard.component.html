@@ -1,7 +1,21 @@
-<div class="container">
+<div class="container dash-item">
   <div class="row">
-    <div class="col-md-3">
-      <button class="btn btn-success" (click)="onsubmit()">Submit</button>
+    <div class="col-md-12">
+      <h1>Dashboard</h1>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let item of boxCardList">
+      <div class="box {{item.bgColor}}">
+        <div class="box-icn">
+          <i [class]="item.boxIcon"></i>
+        </div>
+        <div class="box-content">
+          <h5>{{item.boxTitle}}</h5>
+          <p>{{item.boxCount}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
