@@ -1,0 +1,77 @@
+.box.bg-1 {
+  background: #FBAD4B;
+  border: 1px solid #FBAD4B;
+}
+
+.box.bg-2 {
+  background: #59CF5D;
+  border: 1px solid #59CF5D;
+}
+
+.box.bg-3 {
+  background: #FF646C;
+  border: 1px solid #FF646C;
+}
+
+.box.bg-4 {
+  background: #1E62F1;
+  border: 1px solid #1E62F1;
+}
+
+.box {
+  padding: 10px;
+  width: 100%;
+  overflow: hidden;
+  min-height: 90px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: all .3s ease-in-out;
+}
+
+.box:hover {
+  cursor: pointer;
+  background: transparent;
+}
+
+.box:hover i,
+.box:hover h5,
+.box:hover p {
+  color: #000 !important;
+}
+
+.box .box-icn {
+  width: 35%;
+  float: left;
+  text-align: center;
+  overflow: hidden;
+}
+
+.box .box-icn i {
+  font-size: 40px;
+  color: #fff;
+  transition: all .3s ease-in-out;
+}
+
+.box .box-content {
+  width: 50%;
+  float: left;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto;
+  color: #fff;
+  padding-top: 10px;
+}
+
+.box .box-content h5 {
+  font-size: 12px;
+  margin-bottom: 0px;
+  transition: all .3s ease-in-out;
+}
+
+.box .box-content p {
+  margin-bottom: 0px !important;
+  font-size: 18px;
+  font-weight: 700;
+  transition: all .3s ease-in-out;
+}
