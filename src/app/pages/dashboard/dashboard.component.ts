@@ -11,5 +11,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  onsubmit() {
+    alert("hello world");
+  }
 }
