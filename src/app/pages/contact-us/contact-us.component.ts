@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ICountry } from 'src/app/shared/models/cntry.model';
 import { IGender } from 'src/app/shared/models/gender.model';
 
 @Component({
@@ -23,6 +24,8 @@ export class ContactUsComponent implements OnInit {
   country: FormControl;
 
   genderList: Array<IGender> = [];
+  countryList: Array<ICountry> = [];
+
   submitted: boolean = false;
 
   constructor(
@@ -34,11 +37,11 @@ export class ContactUsComponent implements OnInit {
     this.age = new FormControl("", [Validators.required, Validators.pattern("^[0-9]*$")]);
     this.gender = new FormControl(null, [Validators.required]);
 
-    this.state = new FormControl("");
-    this.zipCode = new FormControl("");
-    this.city = new FormControl("");
-    this.area = new FormControl("");
-    this.country = new FormControl("");
+    this.state = new FormControl("", [Validators.required]);
+    this.zipCode = new FormControl("", [Validators.required, Validators.pattern("^[0-9]*$")]);
+    this.city = new FormControl("", [Validators.required]);
+    this.area = new FormControl("", [Validators.required]);
+    this.country = new FormControl(null, [Validators.required]);
 
     this.address = this.formBuilder.group({
       state: this.state,
@@ -63,11 +66,24 @@ export class ContactUsComponent implements OnInit {
       { key: "m", value: "Male" },
       { key: "f", value: "Female" },
       { key: "o", value: "Other" },
-    ]
+    ],
+      this.countryList = [
+        { code: null!, value: "Select Country" },
+        { code: "AFG", value: "Albania" },
+        { code: "ALB", value: "Afghanistan" },
+        { code: "DZA", value: "Algeria" },
+        { code: "ASM", value: "American Samoa" },
+        { code: "AND", value: "Andorra" },
+        { code: "AGO", value: "Angola" },
+      ]
   }
 
   get form() {
     return this.contactUsFormGroup.controls;
+  }
+
+  get addressForm() {
+    return this.address.controls;
   }
 
   onSubmit() {
