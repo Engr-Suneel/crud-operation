@@ -7,7 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { ReportsComponent } from './reports/reports.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 
 
@@ -23,6 +23,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     PagesRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule
   ]
 })

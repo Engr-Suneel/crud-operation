@@ -1,1 +1,118 @@
-<p>contact-us works!</p>
+<section class="contact-us">
+  <div class="main-contact-us">
+    <div class="wrapper-contact-us">
+      <h2>Contact Us Form - Reactive Forms</h2>
+      <form [formGroup]="contactUsFormGroup" (ngSubmit)="onSubmit()">
+
+        <div class="card">
+          <div class="card-header">Basic Information</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6">
+                <div class="mb-3">
+                  <label>First Name</label>
+                  <input type="text" class="form-control" [formControl]="firstName"
+                    [ngClass]="{'is-invalid': submitted && form.firstName.errors}" />
+                  <div *ngIf="submitted && form.firstName.errors" class="invalid-feedback d-block">
+                    <div *ngIf="form.firstName.errors.required">
+                      First name is required!
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="mb-3">
+                  <label>Last Name</label>
+                  <input type="text" class="form-control" [formControl]="lastName"
+                    [ngClass]="{'is-invalid': submitted && form.lastName.errors}" />
+                  <div *ngIf="submitted && form.lastName.errors" class="invalid-feedback d-block">
+                    <div *ngIf="form.lastName.errors.required">
+                      Last name is required!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="mb-3">
+                  <label>Age</label>
+                  <input type="text" class="form-control" [formControl]="age"
+                    [ngClass]="{'is-invalid': submitted && form.age.errors}" />
+                  <div *ngIf="submitted && form.age.errors" class="invalid-feedback d-block">
+                    <div *ngIf="form.age.errors.required">
+                      Age is required!
+                    </div>
+                    <div *ngIf="form.age.errors.pattern">
+                      Age should be a number
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="mb-3">
+                  <label>Gender</label>
+                  <select class="form-control" [formControl]="gender"
+                    [ngClass]="{'is-invalid': submitted && form.gender.errors}">
+                    <option [value]="item.key" *ngFor="let item of genderList">{{item.value}}</option>
+                  </select>
+                  <div *ngIf="submitted && form.gender.errors" class="invalid-feedback d-block">
+                    <div *ngIf="form.gender.errors.required">
+                      Please select a Gender
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-3">
+          <div class="card-header">Address Information</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6">
+                <div class="mb-3">
+                  <label>Country</label>
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="mb-3">
+                  <label>State</label>
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="mb-3">
+                  <label>Zip Code</label>
+                  <input type="number" class="form-control" />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="mb-3">
+                  <label>City</label>
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="mb-3">
+                  <label>Area</label>
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 align-right">
+          <button class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
