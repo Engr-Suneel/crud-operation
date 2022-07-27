@@ -67,20 +67,34 @@
           </div>
         </div>
 
-        <div class="card mt-3">
+        <div class="card mt-3" [formGroup]="address">
           <div class="card-header">Address Information</div>
           <div class="card-body">
             <div class="row">
               <div class="col-6">
                 <div class="mb-3">
                   <label>Country</label>
-                  <input type="text" class="form-control" />
+                  <select class="form-control" [formControl]="country"
+                    [ngClass]="{'is-invalid': submitted && addressForm.country.errors}">
+                    <option [value]="cnt.code" *ngFor="let cnt of countryList">{{cnt.value}}</option>
+                  </select>
+                  <div *ngIf="submitted && addressForm.country.errors" class="invalid-feedback d-block">
+                    <div *ngIf="addressForm.country.errors.required">
+                      Please select a Country
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="col-6">
                 <div class="mb-3">
                   <label>State</label>
-                  <input type="text" class="form-control" />
+                  <input type="text" class="form-control" [formControl]="state"
+                    [ngClass]="{'is-invalid': submitted && addressForm.state.errors}" />
+                  <div *ngIf="submitted && addressForm.state.errors" class="invalid-feedback d-block">
+                    <div *ngIf="addressForm.state.errors.required">
+                      State is required!
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -88,13 +102,28 @@
               <div class="col-6">
                 <div class="mb-3">
                   <label>Zip Code</label>
-                  <input type="number" class="form-control" />
+                  <input type="text" class="form-control" [formControl]="zipCode"
+                    [ngClass]="{'is-invalid': submitted && addressForm.zipCode.errors}" />
+                  <div *ngIf="submitted && addressForm.zipCode.errors" class="invalid-feedback d-block">
+                    <div *ngIf="addressForm.zipCode.errors.required">
+                      Zip is required!
+                    </div>
+                    <div *ngIf="addressForm.zipCode.errors.pattern">
+                      Zip should be a number
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="col-6">
                 <div class="mb-3">
                   <label>City</label>
-                  <input type="text" class="form-control" />
+                  <input type="text" class="form-control" [formControl]="city"
+                    [ngClass]="{'is-invalid': submitted && addressForm.city.errors}" />
+                  <div *ngIf="submitted && addressForm.city.errors" class="invalid-feedback d-block">
+                    <div *ngIf="addressForm.city.errors.required">
+                      City is Required!
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -102,7 +131,13 @@
               <div class="col-12">
                 <div class="mb-3">
                   <label>Area</label>
-                  <input type="text" class="form-control" />
+                  <input type="text" class="form-control" [formControl]="area"
+                    [ngClass]="{'is-invalid': submitted && addressForm.area.errors}" />
+                  <div *ngIf="submitted && addressForm.area.errors" class="invalid-feedback d-block">
+                    <div *ngIf="addressForm.area.errors.required">
+                      Area is Required!
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
